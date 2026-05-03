@@ -6,11 +6,12 @@
     "node": ">=18.0.0"
   },
 "scripts": {
-  "dev": "next dev",
-  "build": "next build && npx open-next build", 
-  "start": "next start",
-  "lint": "eslint"
-}
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
+  }
   "dependencies": {
     "@content-collections/mdx": "^0.2.2",
     "@gsap/react": "^2.1.2",
