@@ -50,13 +50,16 @@ export default function Page() {
           <div className="mx-auto w-full max-w-2xl space-y-8">
             <div className="gap-4 gap-y-6 flex flex-col md:flex-row items-center">
               <div className="gap-8 flex flex-col order-2 md:order-2">
-                {/* @ts-expect-error - This forces the build to ignore prop-checking for this specific element */}
-                <SplitText
-                  text={`Hi, I'm ${DATA.name}`}
+                <BlurFadeText
+                  delay={BLUR_FADE_DELAY}
                   className="text-3xl font-semibold tracking-tight sm:text-4xl lg:text-4xl xl:text-5xl text-white"
-                  delay={40}
-                  duration={0.5}
-                  onLetterAnimationComplete={() => {}}
+                  text={`Hi, I'm ${DATA.name}`}
+                  animateByCharacter={true}
+                />
+                <BlurFadeText
+                  className="text-muted-foreground max-w-[600px] md:text-lg lg:text-xl"
+                  delay={BLUR_FADE_DELAY * 2}
+                  text={DATA.description}
                 />
               </div>
               <BlurFade delay={BLUR_FADE_DELAY} className="order-1 md:order-1">
