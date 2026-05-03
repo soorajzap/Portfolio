@@ -9,8 +9,10 @@ import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(ScrollTrigger, GSAPSplitText, useGSAP);
 
 // ✅ Proper Type Definition
+// src/components/animations/SplitText.tsx
+
 type SplitTextProps = {
-  text: any;
+  text: string; // Keep this required
   className?: string;
   delay?: number;
   duration?: number;
@@ -22,8 +24,8 @@ type SplitTextProps = {
   rootMargin?: string;
   textAlign?: string;
   tag?: any;
-  onLetterAnimationComplete?: () => void; // ✅ optional
-};
+  onLetterAnimationComplete?: () => void;
+} & Record<string, any>; // This allows any other random props without erroring
 
 const SplitText = ({
   text,

@@ -51,19 +51,13 @@ export default function Page() {
           <div className="mx-auto w-full max-w-2xl space-y-8">
             <div className="gap-4 gap-y-6 flex flex-col md:flex-row items-center">
               <div className="gap-8 flex flex-col order-2 md:order-2">
-<SplitText
-  text={`Hi, I'm ${DATA.name}`}
-  className="text-3xl font-semibold tracking-tight sm:text-4xl lg:text-4xl xl:text-5xl text-white"
-  delay={40}
-  duration={0.5}
-  onLetterAnimationComplete={() => {}}
-  // Add these common expected props just in case:
-  ease="easeOut"
-  from={{ opacity: 0, y: 20 }}
-  to={{ opacity: 1, y: 0 }}
-  splitType="words"
-  textAlign="center"
-/>
+              <SplitText
+                text={`Hi, I'm ${DATA.name}`}
+                className="text-3xl font-semibold tracking-tight sm:text-4xl lg:text-4xl xl:text-5xl text-white"
+                delay={40}
+                duration={0.5}
+                onLetterAnimationComplete={() => {}}
+              />
                 {/* <BlurFadeText
                   className="text-muted-foreground max-w-[600px] md:text-lg lg:text-xl"
                   delay={BLUR_FADE_DELAY}
