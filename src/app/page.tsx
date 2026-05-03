@@ -55,8 +55,14 @@ export default function Page() {
   text={`Hi, I'm ${DATA.name}`}
   className="text-3xl font-semibold tracking-tight sm:text-4xl lg:text-4xl xl:text-5xl text-white"
   delay={40}
-  // Add this line to satisfy the TypeScript requirement
-  onLetterAnimationComplete={() => {}} 
+  duration={0.5}
+  onLetterAnimationComplete={() => {}}
+  // Add these common expected props just in case:
+  ease="easeOut"
+  from={{ opacity: 0, y: 20 }}
+  to={{ opacity: 1, y: 0 }}
+  splitType="words"
+  textAlign="center"
 />
                 {/* <BlurFadeText
                   className="text-muted-foreground max-w-[600px] md:text-lg lg:text-xl"
