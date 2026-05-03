@@ -61,6 +61,7 @@ export default function Page() {
                   from={{ opacity: 0, y: 30 }}
                   to={{ opacity: 1, y: 0 }}
                   textAlign="left"
+                  onLetterAnimationComplete={() => {}}
                 />
                 {/* <BlurFadeText
                   className="text-muted-foreground max-w-[600px] md:text-lg lg:text-xl"
