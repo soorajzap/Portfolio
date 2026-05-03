@@ -3,42 +3,7 @@ import { withContentCollections } from "@content-collections/next";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  
-  // ADD THIS SECTION TO BYPASS BUILD ERRORS
-  typescript: {
-    // Allows production builds to complete even if your project has type errors
-    ignoreBuildErrors: true,
-  },
-  eslint: {
-    // Prevents ESLint warnings from stopping the build
-    ignoreDuringBuilds: true,
-  },
-
-  async headers() {
-    return [
-      {
-        source: "/:path*",
-        headers: [
-          {
-            key: "X-Content-Type-Options",
-            value: "nosniff",
-          },
-          {
-            key: "X-Frame-Options",
-            value: "DENY",
-          },
-          {
-            key: "Referrer-Policy",
-            value: "strict-origin-when-cross-origin",
-          },
-          {
-            key: "Permissions-Policy",
-            value: "camera=(), microphone=(), geolocation=()",
-          },
-        ],
-      },
-    ];
-  },
+  output: "export",
 };
 
 // withContentCollections must be the outermost plugin
