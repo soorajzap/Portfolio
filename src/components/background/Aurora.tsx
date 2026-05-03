@@ -111,7 +111,6 @@ void main() {
 }
 `;
 
-// Added explicit type definition to fix the build error
 interface AuroraProps {
   colorStops?: string[];
   amplitude?: number;
@@ -207,8 +206,7 @@ export default function Aurora(props: AuroraProps) {
       }
       gl.getExtension('WEBGL_lose_context')?.loseContext();
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [amplitude]);
+  }, [amplitude, colorStops, blend]);
 
   return <div ref={ctnDom} className="aurora-container" />;
 }
