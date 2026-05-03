@@ -8,11 +8,8 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger, GSAPSplitText, useGSAP);
 
-// ✅ Proper Type Definition
-// src/components/animations/SplitText.tsx
-
-type SplitTextProps = {
-  text: string; // Keep this required
+export interface SplitTextProps {
+  text: string;
   className?: string;
   delay?: number;
   duration?: number;
@@ -22,26 +19,31 @@ type SplitTextProps = {
   to?: { opacity: number; y: number };
   threshold?: number;
   rootMargin?: string;
-  textAlign?: string;
+  textAlign?: any;
   tag?: any;
   onLetterAnimationComplete?: () => void;
-} & Record<string, any>; // This allows any other random props without erroring
+  // This line is the magic fix: it allows any other props without failing the build
+  [key: string]: any; 
+}
 
-const SplitText = ({
-  text,
-  className = "",
-  delay = 50,
-  duration = 1.25,
-  ease = "power3.out",
-  splitType = "chars",
-  from = { opacity: 0, y: 40 },
-  to = { opacity: 1, y: 0 },
-  threshold = 0.1,
-  rootMargin = "-100px",
-  textAlign = "center",
-  tag = "p",
-  onLetterAnimationComplete = () => {},
-}: SplitTextProps) => {
+const SplitText = (props: SplitTextProps) => {
+  // Destructuring with defaults inside the body to avoid parameter type conflicts
+  const {
+    text,
+    className = "",
+    delay = 50,
+    duration = 1.25,
+    ease = "power3.out",
+    splitType = "chars",
+    from = { opacity: 0, y: 40 },
+    to = { opacity: 1, y: 0 },
+    threshold = 0.1,
+    rootMargin = "-100px",
+    textAlign = "center",
+    tag = "p",
+    onLetterAnimationComplete = () => {},
+  } = props;
+
   const ref = useRef<any>(null);
   const animationCompletedRef = useRef(false);
   const onCompleteRef = useRef(onLetterAnimationComplete);
@@ -53,10 +55,10 @@ const SplitText = ({
 
   useEffect(() => {
     if (document.fonts.status === "loaded") {
-      setFontsLoaded(true);
+      setFontLoaded(true);
     } else {
       document.fonts.ready.then(() => {
-        setFontsLoaded(true);
+        setFontLoaded(true);
       });
     }
   }, []);
