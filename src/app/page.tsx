@@ -51,18 +51,12 @@ export default function Page() {
           <div className="mx-auto w-full max-w-2xl space-y-8">
             <div className="gap-4 gap-y-6 flex flex-col md:flex-row items-center">
               <div className="gap-8 flex flex-col order-2 md:order-2">
-                <SplitText
-                  text={`Hi, I'm ${DATA.name}`}
-                  className="text-3xl font-semibold tracking-tight sm:text-4xl lg:text-4xl xl:text-5xl text-white"
-                  delay={40}
-                  duration={1}
-                  ease="power3.out"
-                  splitType="chars"
-                  from={{ opacity: 0, y: 30 }}
-                  to={{ opacity: 1, y: 0 }}
-                  textAlign="left"
-                  onLetterAnimationComplete={() => {}}
-                />
+              <SplitText
+                text={`Hi, I'm ${DATA.name}`}
+                className="text-3xl font-semibold tracking-tight sm:text-4xl lg:text-4xl xl:text-5xl text-white"
+                delay={40}
+                onLetterAnimationComplete={() => {}} // Add this line
+              />
                 {/* <BlurFadeText
                   className="text-muted-foreground max-w-[600px] md:text-lg lg:text-xl"
                   delay={BLUR_FADE_DELAY}
