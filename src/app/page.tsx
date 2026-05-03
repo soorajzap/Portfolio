@@ -12,6 +12,7 @@ import WorkSection from "@/components/section/work-section";
 import { ArrowUpRight } from "lucide-react";
 import { Ripple } from "@/components/ui/ripple";
 import DotField from "@/components/background/DotField";
+import SplitText from "@/components/animations/SplitText";
 import Aurora from "@/components/background/Aurora";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
@@ -49,18 +50,14 @@ export default function Page() {
           <div className="mx-auto w-full max-w-2xl space-y-8">
             <div className="gap-4 gap-y-6 flex flex-col md:flex-row items-center">
               <div className="gap-8 flex flex-col order-2 md:order-2">
-                <BlurFadeText
-                  delay={BLUR_FADE_DELAY}
-                  className="text-3xl font-semibold tracking-tight sm:text-4xl lg:text-4xl xl:text-5xl text-white"
-                  text={`Hi, I'm ${DATA.name}`}
-                  animateByCharacter={true}
-                />
-                <BlurFadeText
-                  className="text-muted-foreground max-w-[600px] md:text-lg lg:text-xl"
-                  delay={BLUR_FADE_DELAY * 2}
-                  text={DATA.description}
-                />
-              </div>
+            <BlurFadeText
+                delay={BLUR_FADE_DELAY}
+                className="text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl text-white break-words"
+                text={`Hi, I'm ${DATA.name}`}
+                animateByCharacter={true}
+              />
+              
+            </div>
               <BlurFade delay={BLUR_FADE_DELAY} className="order-1 md:order-1">
                 <Avatar className="size-32 md:size-44 border rounded-full shadow-lg ring-4 ring-muted">
                   <AvatarImage
