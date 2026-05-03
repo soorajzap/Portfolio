@@ -1,11 +1,16 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "portfolio", 
+  "name": "portfolio",
+  "main": ".open-next/worker.js", // The entry point created by OpenNext
   "compatibility_date": "2026-05-03",
-  "observability": {
-    "enabled": true
-  },
   "compatibility_flags": [
     "nodejs_compat"
-  ]
+  ],
+  "assets": {
+    "directory": ".open-next/assets", // Where your images/CSS are stored
+    "binding": "ASSETS"
+  },
+  "observability": {
+    "enabled": true
+  }
 }
