@@ -12,7 +12,7 @@ import WorkSection from "@/components/section/work-section";
 import { ArrowUpRight } from "lucide-react";
 import { Ripple } from "@/components/ui/ripple";
 import DotField from "@/components/background/DotField";
-import SplitText from "@/components/animations/SplitText";
+
 import Aurora from "@/components/background/Aurora";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
