@@ -8,6 +8,7 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger, GSAPSplitText, useGSAP);
 
+// ✅ Updated Interface: Flexible and permissive
 export interface SplitTextProps {
   text: string;
   className?: string;
@@ -22,12 +23,12 @@ export interface SplitTextProps {
   textAlign?: any;
   tag?: any;
   onLetterAnimationComplete?: () => void;
-  // This line is the magic fix: it allows any other props without failing the build
+  // This allows any additional props, preventing "missing property" errors
   [key: string]: any; 
 }
 
 const SplitText = (props: SplitTextProps) => {
-  // Destructuring with defaults inside the body to avoid parameter type conflicts
+  // Destructure with defaults inside the body
   const {
     text,
     className = "",

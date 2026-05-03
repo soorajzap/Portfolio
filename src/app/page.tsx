@@ -50,7 +50,7 @@ export default function Page() {
           <div className="mx-auto w-full max-w-2xl space-y-8">
             <div className="gap-4 gap-y-6 flex flex-col md:flex-row items-center">
               <div className="gap-8 flex flex-col order-2 md:order-2">
-                {/* @ts-expect-error - Bypassing strict prop check for build */}
+                {/* @ts-expect-error - This forces the build to ignore prop-checking for this specific element */}
                 <SplitText
                   text={`Hi, I'm ${DATA.name}`}
                   className="text-3xl font-semibold tracking-tight sm:text-4xl lg:text-4xl xl:text-5xl text-white"
@@ -72,7 +72,7 @@ export default function Page() {
             </div>
           </div>
         </section>
-        
+
         {/* Rest of your sections stay the same... */}
         <section id="about" className="mb-10">
           <div className="flex min-h-0 flex-col gap-y-4">
@@ -86,7 +86,7 @@ export default function Page() {
             </BlurFade>
           </div>
         </section>
-        
+
         <section id="work" className="mb-10">
           <div className="flex min-h-0 flex-col gap-y-6">
             <BlurFade delay={BLUR_FADE_DELAY * 5}>
